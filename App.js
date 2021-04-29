@@ -14,8 +14,6 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 import printer from 'react-native-honeywell-printer-rp4a';
 
 const App = () => {
@@ -26,10 +24,18 @@ const App = () => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            printer.tagSize(100);
+            printer.tagSize(400);
 
-            /*  printer.barCode(10, 100, 1234567); */
-            printer.text(125, 175, 'teste', 50);
+            /*             printer.text(250, 175, 'Batata | ', 50);
+            printer.text(425, 175, 'R$3,00', 50);
+            printer.text(250, 225, 'Refrigereante | ', 50);
+            printer.text(625, 225, 'R$4,50', 50);
+ */ printer.barCode(
+              300,
+              100,
+              1234567,
+            );
+
             console.log(printer.showCode());
 
             printer.bluetoothShow().then(res => console.log(res));
